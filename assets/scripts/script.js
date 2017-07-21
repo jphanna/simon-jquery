@@ -25,7 +25,7 @@ $(document).ready(function() {
     }
   });
 
-  $buttons.on("click", () => {
+  $buttons.on("click", (event) => {
     if (event.target.id === "b1" ||
         event.target.id === "b2" ||
         event.target.id === "b3" ||
