@@ -25,14 +25,7 @@ $(document).ready(function() {
     }
   });
 
-  $buttons.on("click", (event) => {
-    if (event.target.id === "b1" ||
-        event.target.id === "b2" ||
-        event.target.id === "b3" ||
-        event.target.id === "b4") {
-          playersTurn(event);
-    }
-  });
+  $buttons.on("click", playersTurn);
 
   /* Simon chooses next number to add to sequence and runs the round*/
   function getSimon() {
@@ -73,8 +66,12 @@ $(document).ready(function() {
 
   function playersTurn(event) {
     if (playerGo) {
-      var playerButton = event;
-      bleep(playerButton);
+      if (event.target.id === "b1" ||
+        event.target.id === "b2" ||
+        event.target.id === "b3" ||
+        event.target.id === "b4") {
+          bleep(event);
+      }
     }
   }
 
