@@ -13,7 +13,9 @@ $(document).ready(function() {
   var $yourTurn = $("#yourTurn");
   var $tryAgain = $("#tryAgain");
   var $strictError = $("#strictError");
+
   $startButton.on("click", start);
+
   $strictButton.on("click", () => {
     strict = !strict;
     if (strict) {
@@ -22,7 +24,8 @@ $(document).ready(function() {
       $strictButton.css({background: "#2c3e50"});
     }
   });
-  $buttons.on("click", (event) => {
+
+  $buttons.on("click", () => {
     if (event.target.id === "b1" ||
         event.target.id === "b2" ||
         event.target.id === "b3" ||
@@ -35,7 +38,7 @@ $(document).ready(function() {
   function getSimon() {
     round++;
     $roundDisplay.text(addZero(round));
-    sequence.push(Math.floor(Math.random() * (5 - 1)) + 1);
+    sequence.push(Math.floor(Math.random() * 4) + 1);
     activate(sequence);
   }
 
@@ -69,7 +72,7 @@ $(document).ready(function() {
   }
 
   function playersTurn(event) {
-    if (playerGo === true) {
+    if (playerGo) {
       var playerButton = event;
       bleep(playerButton);
     }
@@ -77,18 +80,18 @@ $(document).ready(function() {
 
   /* Player button activation */
   function bleep(e) {
-    var element = $(e.target);
-    if (playerGo === true) {
+    if (playerGo) {
+      var element = $(e.target);
       var number = Number(e.target.dataset.number);
       var $sound = $("#tone" + number);
-      $sound.currentTime = 0;
+      $sound.get(0).currentTime = 0;
       $sound.get(0).play();
-      $buttons.off("click", bleep);
+      $buttons.off("click");
       element.removeClass("off").addClass("on");
       testSeq(number);
       setTimeout(() => {
         element.removeClass("on").addClass("off");
-        $buttons.on("click", bleep);
+        $buttons.on("click", playersTurn);
       }, 350);
     }
   }
@@ -100,6 +103,7 @@ $(document).ready(function() {
       if (playerSequence === sequence.length) {
         if (playerSequence === 20) {
           $youWin.css({display: "initial"});
+          $yourTurn.css({display: "none"});
           playerGo = false;
           computerGo = true;
           setTimeout(() => {$youWin.css({display: "none"}); start();}, 2000);
@@ -117,7 +121,7 @@ $(document).ready(function() {
         $yourTurn.css({display: "none"});
       } else {
         $yourTurn.css({display: "none"});
-        $tryAgain.cs({display: "initial"});
+        $tryAgain.css({display: "initial"});
         playerGo = false;
         computerGo = true;
         playerSequence = 0;
