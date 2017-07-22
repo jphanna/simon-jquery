@@ -139,12 +139,3 @@ $(document).ready(function() {
     setTimeout(getSimon, 1000);
   }
 });
-
-/* BEGIN GAME
-  and if player gets sequence correct,
-  get another number in the sequence
-  and show the sequence */
-// getSimon();
-
-/* If player is wrong, try again */
-// activate(sequence);
