@@ -49,7 +49,7 @@ $(document).ready(function() {
         clearInterval(timing);
         computerGo = false;
         playerGo = true;
-        setTimeout(() => {$yourTurn.css({display: "initial"})}, 700);
+        setTimeout(() => {$yourTurn.css({display: "initial"});}, 700);
       }
     }, 700);
   }
@@ -122,7 +122,7 @@ $(document).ready(function() {
         playerGo = false;
         computerGo = true;
         playerSequence = 0;
-        setTimeout(() => {$tryAgain.css({display: "none"}); activate(sequence)}, 2000);
+        setTimeout(() => {$tryAgain.css({display: "none"}); activate(sequence);}, 2000);
       }
     }
   }
