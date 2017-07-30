@@ -29,14 +29,13 @@ $(document).ready(function() {
 
   /* Simon chooses next number to add to sequence and runs the round*/
   function getSimon() {
+    function addZero(num) {
+      return (num < 10) ? "0" + num : num;
+    }
     round++;
     $roundDisplay.text(addZero(round));
     sequence.push(Math.floor(Math.random() * 4) + 1);
     activate(sequence);
-  }
-
-  function addZero(num) {
-    return (num < 10) ? "0" + num : num;
   }
 
   /* Simon show sequence */
