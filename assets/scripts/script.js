@@ -27,8 +27,17 @@ $(document).ready(function() {
 
   $buttons.on("click", playersTurn);
 
-  /* Simon chooses next number to add to sequence and runs the round*/
+  /**
+   * Simon chooses next number to add to sequence and runs the round
+   * 
+   */
   function getSimon() {
+    /**
+     * If needed, add a zero to the round count
+     * 
+     * @param {number} num 
+     * @returns {string | number}
+     */
     function addZero(num) {
       return (num < 10) ? "0" + num : num;
     }
@@ -38,13 +47,17 @@ $(document).ready(function() {
     activate(sequence);
   }
 
-  /* Simon show sequence */
+  /**
+   * Simon play the sequence
+   * 
+   * @param {array object} sequence 
+   */
   function activate(sequence) {
     var i = 0;
     var timing = setInterval(() => {
       lightButton(sequence[i]);
       i++;
-      if (i >= sequence.length) {
+      if (i === sequence.length) {
         clearInterval(timing);
         computerGo = false;
         playerGo = true;
@@ -52,7 +65,12 @@ $(document).ready(function() {
       }
     }, 700);
   }
-  /* Simon button activation */
+  
+  /**
+   * Simon button activation
+   * 
+   * @param {number} number 
+   */
   function lightButton(number) {
     var $sound = $("#tone" + number);
     var $button = $("#b" + number);
@@ -63,6 +81,11 @@ $(document).ready(function() {
     }, 350);
   }
 
+  /**
+   * Player click handler
+   * 
+   * @param {any} event 
+   */
   function playersTurn(event) {
     if (playerGo) {
       if (event.target.id === "b1" ||
@@ -74,7 +97,11 @@ $(document).ready(function() {
     }
   }
 
-  /* Player button activation */
+  /**
+   * Player button activation
+   * 
+   * @param {event object} e 
+   */
   function bleep(e) {
     if (playerGo) {
       var element = $(e.target);
@@ -92,7 +119,11 @@ $(document).ready(function() {
     }
   }
 
-  /* Test player sequence */
+  /**
+   * Test players sequence
+   * 
+   * @param {number} number 
+   */
   function testSeq(number) {
     if (number === sequence[playerSequence]) {
       playerSequence++;
@@ -126,6 +157,10 @@ $(document).ready(function() {
     }
   }
 
+  /**
+   * Initialize Game
+   * 
+   */
   function start() {
     sequence = [];
     round = 0;
