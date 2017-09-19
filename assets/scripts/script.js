@@ -50,7 +50,7 @@ $(document).ready(function() {
   /**
    * Simon play the sequence
    * 
-   * @param {array object} sequence 
+   * @param {array} sequence 
    */
   function activate(sequence) {
     var i = 0;
@@ -84,7 +84,7 @@ $(document).ready(function() {
   /**
    * Player click handler
    * 
-   * @param {any} event 
+   * @param {event} event 
    */
   function playersTurn(event) {
     if (playerGo) {
@@ -100,7 +100,7 @@ $(document).ready(function() {
   /**
    * Player button activation
    * 
-   * @param {event object} e 
+   * @param {event} e 
    */
   function bleep(e) {
     if (playerGo) {
