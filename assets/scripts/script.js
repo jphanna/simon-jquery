@@ -29,13 +29,13 @@ $(document).ready(function() {
 
   /**
    * Simon chooses next number to add to sequence and runs the round
-   * 
+   *
    */
   function getSimon() {
     /**
      * If needed, add a zero to the round count
-     * 
-     * @param {number} num 
+     *
+     * @param {number} num
      * @returns {string | number}
      */
     function addZero(num) {
@@ -49,8 +49,8 @@ $(document).ready(function() {
 
   /**
    * Simon play the sequence
-   * 
-   * @param {array} sequence 
+   *
+   * @param {array} sequence
    */
   function activate(sequence) {
     var i = 0;
@@ -68,8 +68,8 @@ $(document).ready(function() {
   
   /**
    * Simon button activation
-   * 
-   * @param {number} number 
+   *
+   * @param {number} number
    */
   function lightButton(number) {
     var $sound = $("#tone" + number);
@@ -83,8 +83,8 @@ $(document).ready(function() {
 
   /**
    * Player click handler
-   * 
-   * @param {event} event 
+   *
+   * @param {event} event
    */
   function playersTurn(event) {
     if (playerGo) {
@@ -99,8 +99,8 @@ $(document).ready(function() {
 
   /**
    * Player button activation
-   * 
-   * @param {event} e 
+   *
+   * @param {event} e
    */
   function bleep(e) {
     if (playerGo) {
@@ -121,8 +121,8 @@ $(document).ready(function() {
 
   /**
    * Test players sequence
-   * 
-   * @param {number} number 
+   *
+   * @param {number} number
    */
   function testSeq(number) {
     if (number === sequence[playerSequence]) {
@@ -159,7 +159,7 @@ $(document).ready(function() {
 
   /**
    * Initialize Game
-   * 
+   *
    */
   function start() {
     sequence = [];
